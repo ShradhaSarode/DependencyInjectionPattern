@@ -1,0 +1,40 @@
+﻿using DIDemo.Models;
+using DIDemo.Repositories;
+
+namespace DIDemo.Services
+{
+    public class EmployeeService : IEmployeeService
+    {
+        private readonly IEmployeeRepo repo;
+
+        public EmployeeService(IEmployeeRepo repo)
+        {
+            this.repo = repo;
+        }
+
+        public int AddEmployee(Employee employee)
+        {
+            return repo.AddEmployee(employee);
+        }
+
+        public int DeleteEmployee(int id)
+        {
+            return repo.DeleteEmployee(id);
+        }
+
+        public int EditEmployee(Employee employee)
+        {
+            return repo.EditEmployee(employee);
+        }
+
+        public Employee GetEmployeeById(int id)
+        {
+            return repo.GetEmployeeById(id);
+        }
+
+        public IEnumerable<Employee> GetEmployees()
+        {
+            return repo.GetEmployees();
+        }
+    }
+}
